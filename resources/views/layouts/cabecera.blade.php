@@ -32,6 +32,10 @@
                     <div class="col-md-3 mb-2 mb-md-0">
                         <h1 class="navbar-brand fs-2 fw-bold" href="#">PAWS</h1>
                     </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ route('shop') }}">Productos</a>
+                    </div>
+                    
 
                     <div class="col-md-3 text-end">
 
