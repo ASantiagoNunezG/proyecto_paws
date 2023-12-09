@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
-
+use App\Http\Controllers\UserAdopcionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +20,6 @@ use App\Http\Controllers\ProveedorController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Registration Routes...
-Route::get('/register', 'App\Http\Controllers\Auth\RegisteredUserController@create')->name('register');
-Route::post('/register', 'App\Http\Controllers\Auth\RegisteredUserController@store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,5 +38,5 @@ Route::middleware(['auth', 'role:administrador'])->group(function(){
 
 Route::middleware(['auth', 'role:usuario'])->group(function(){
     Route::get('/usuario', [UserController::class, 'UserDashboard'])->name('usuario');
-
+    Route::resource('adopcion', UserAdopcionController::class);
 });
