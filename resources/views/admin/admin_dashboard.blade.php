@@ -1,47 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Admin Dashboard</title>
-</head>
-<body>
-    <h1>Bienvenido Amdinistrador</h1>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+@extends('layouts.master')
+@section('title', 'Panel del Administrador')
+@section('content')
+    <div class="row">
+        <div style="text-align: center; padding:30px" >
+            <h1 class="admin-panel-title">PANEL DE ADMINISTRACIÓN</h1>
+            
         </div>
-      </div>
-    <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
-        </x-slot>
-    
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
-                        {{ __("You're logged in!") }}
-                    </div>
+        <div>
+            <hr>
+        </div><br>
+        <div style="text-align: center">
+            
+        </div>
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/adopcion.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen de adopciones" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black">
+                    <h5 class="card-title">Adopciones</h5><hr><br>
+                    <a href="{{ route('adopciones.index') }}" class="btn btn-outline-secondary">Administrar adopciones</a>
+                    <br><br>
+                    <a href="#" class="btn btn-outline-secondary">Citas</a>
+                    <br><br>
+                    <a href="#" class="btn btn-outline-secondary">Historial de adopciones</a>
+
+                </div>
+            </div>
+        </div><br>
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/mascotas.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen de mascotas" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black">
+                    <h5 class="card-title">Mascotas</h5><hr><br>
+                    <a href="{{ route('mascotas.index') }}" class="btn btn-outline-secondary">Administrar mascotas</a>
+                    <br><br>
+                    <a href="#" class="btn btn-outline-secondary">Estado de la mascota</a>
+                    
                 </div>
             </div>
         </div>
-    </x-app-layout>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
+
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/inventario.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen del inventario" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black">
+                    <h5 class="card-title">Inventario</h5><hr><br>
+                    <a href="{{route('productos.index')}}" class="btn btn-outline-secondary">Administrar productos</a>
+                    <br><br>
+                    <a href="#" class="btn btn-outline-secondary">Administrar ventas</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/usuarios.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen de usuarios" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black"> 
+                    <h5 class="card-title">Usuarios</h5><hr><br>
+                    <a href="{{route('usuarios.index')}}" class="btn btn-outline-secondary">Administrar usuarios</a>
+                    <br><br>
+                    <a href="#" class="btn btn-outline-secondary">Bandeja de reclamos</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/empleados.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen de empleados" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black">
+                    <h5 class="card-title">Empleados</h5><hr><br>
+                    <a href="{{route('empleados.index')}}" class="btn btn-outline-secondary">Administrar empleados</a>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="margin: 20px; border:2px solid black">
+            <div class="card h-100 border-0 custom-card">
+                <img src="{{ asset('images/admin/proveedor.jpg') }}" class="card-img-top rounded custom-img img-fluid" alt="Imagen de proveedores" style="width: 300px; height: 200px;">
+                <div class="card-body" style="border:2px solid black">
+                    <h5 class="card-title">Proveedores</h5><hr><br>
+                    <a href="{{route('proveedores.index')}}" class="btn btn-outline-secondary">Administrar proveedores</a>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+@endsection

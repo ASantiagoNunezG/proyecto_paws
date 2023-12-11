@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proveedor extends Model
+class AProveedor extends Model
 {
     use HasFactory;
     
@@ -15,7 +15,7 @@ class Proveedor extends Model
     
     protected $fillable =['nombre','ruc','telefono'];
 
-    /*public function productos(){
-        return $this->hasMany('App\Models\productos','id_proveedor','id_proveedor');
-    }*/
+    public function productos(){
+        return $this->hasMany('App\Models\AProductos','id_proveedor','id_proveedor');
+    }
 }

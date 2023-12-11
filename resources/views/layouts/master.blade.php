@@ -15,85 +15,45 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/abraham.css') }}">
     <title>Área de Administrador - PAWS</title>
 
+    <!--Estilos tailwind -->
+    <!-- Fonts -->
+        
+
     <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
 <body>
     {{-- ---------------------------------CABECERA--------------------------- --}}
+    @include('layouts.navigation')
     <div id="app">
+        
         <nav class="" id="cabecera">
             <div class="container">
                 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                     <div class="col-md-3 mb-2 mb-md-0">
-                        <h1 class="navbar-brand fs-2 fw-bold" href="#">PAWS</h1>
+                        <a href="{{'/'}}" ><h1 class="navbar-brand fs-2 fw-bold text-dark">PAWS</h1></a>
                     </div>
 
                     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="{{'/'}}" class="nav-link fs-5 text-light">Inicio</a></li>
-                        /*<li><a href="/administrador/mascota" class="nav-link fs-5 text-light">Mascotas</a></li>
-                        <li><a href="/administrador/productos" class="nav-link fs-5 text-light">Productos</a></li>
-                        <li><a href="{{route('proveedores.index')}}" class="nav-link fs-5 text-light">Proveedores</a></li>*/
-                        
+                        <li><a href="{{route('administrador')}}" class="nav-link fs-5 text-dark ">Inicio</a></li>  
                     </ul>
-
-                    <div class="col-md-3 text-end">
-                        @guest
-                            @if (Route::has('login'))
-                                <button type="button" class="btn btn-outline-light me-2">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
-                                </button>
-                            @endif
-
-                            @if (Route::has('register'))     
-                                <button type="button" class="btn btn-light">             
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </button>
-                            @endif
-
-                            @if(Auth::check())
-                            <li class="nav-item dropdown">
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        {{ Auth::user()->name }}
-                                        <span class="caret"></span>
-                                    </button>
-                        
-                                    <div class="dropdown-content">
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                        <a href="">Perfil</a>
-                                        <a href="">Mis mascotas</a>
-                                        <a href="">Mis citas</a>
-                        
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </div>
-                            </li>
-                            @endif
-                        @endguest
-                    </div>
                 </header>
             </div>
         </nav>
-        <div style="text-align: center" class="container mt-4">
-          <hr>
-          
-          <div class="mi-div-con-estilo border border-dark bg-white p-3" style="text-align: left">
+        <div style="text-align: center" class="container mt-4">  
+    
+        <div class="mi-div-con-estilo border border-dark bg-white p-3" style="text-align: left">
             <main class="py-4">
-              @yield('content')
-          </main>
-          </div>
-          <hr>
+            @yield('content')
+        </main>
         </div>
-       
+        <hr>
+        </div>
         
         
     </div>
@@ -103,9 +63,9 @@
     
 </body>
 <footer id="footer">
-  <div class="d-flex flex-column flex-sm-row justify-content-center py-3 my-3 border-top" >
-    <p class="text-light">&copy; 2023 PAWS - VETERINARIOS ESPECIALISTAS - DERECHOS RESERVADOS</p>
-  </div> 
+    <div class="d-flex flex-column flex-sm-row justify-content-center py-3 my-3 border-top" >
+    <p class="text-dark">&copy; 2023 PAWS - VETERINARIOS ESPECIALISTAS - DERECHOS RESERVADOS</p>
+    </div> 
 </footer>
 </html>
 

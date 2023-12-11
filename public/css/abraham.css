@@ -1,0 +1,41 @@
+/* En tu archivo de estilos CSS o en línea en tu plantilla Blade */
+ul.pagination li a,
+ul.pagination li span {
+    font-size: 1rem; /* Ajusta el tamaño según tus preferencias */
+    /* Agrega otros estilos según sea necesario */
+}
+
+/* Ajusta el tamaño del texto y otros estilos de la paginación */
+nav[role="navigation"] {
+    font-size: 14px;
+}
+
+nav[role="navigation"] a {
+    padding: 8px 12px; /* Ajusta el espaciado interno */
+}
+
+/* Opcional: Cambia el color de fondo o los colores de texto en hover */
+nav[role="navigation"] a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+
+/*Tratando de dividir en cuadrados*/
+.admin-panel-title {
+    color: #ff4081; /* Cambia este color según tus preferencias */
+    font-size: 2.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
+    font-weight: bold; /* Puedes ajustar el grosor de la fuente según tus preferencias */
+    margin-bottom: 20px; /* Ajusta el margen inferior según tus preferencias */
+}
+
+/*estilo a las cartas de la pantalla principal*/
+.custom-card img {
+    width: 100%;
+    height: auto;
+}
+
+.custom-card:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
