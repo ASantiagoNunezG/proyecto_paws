@@ -1,22 +1,35 @@
 @extends('layouts.master')
 @section('title', 'Mascotas')
 @section('content')
-    <div>
-        <div class="container mt-4">
-            <div>
+    <div class="container">
+        <h2>MASCOTAS</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ route('administrador') }}" class="btn btn-secondary me-2"><i class="bi bi-arrow-left"></i>Volver</a>
+                <a href="{{ route('mascotas.create') }}" class="btn btn-success me-2">Nueva Mascota</a>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
                 <form action="{{ route('mascotas.filtrar') }}" method="POST">
                     @csrf
                     <label for="categoria">Categoría:</label>
-                    <input type="checkbox" name="categoria[]" value="Macho"> Macho
-                    <input type="checkbox" name="categoria[]" value="Hembra"> Hembra
-                    <input type="checkbox" name="categoria[]" value="Disponible"> Disponible
-                    <!-- Agrega más campos según tus necesidades -->
-                    <button type="submit">Filtrar</button>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="categoria[]" value="Macho"> Macho
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="categoria[]" value="Hembra"> Hembra
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="categoria[]" value="Disponible"> Disponible
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit"><i class="bi bi-funnel"></i></button>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <h1>Mascotas</h1>
-            <a href="{{route('administrador')}}" class="btn btn-primary">Volver</a>
-            <a href="{{route('mascotas.create')}}" class="btn btn-primary">Nueva Mascota</a>
+        </div>
+        <div class="container mt-4">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -35,25 +48,28 @@
                 <tbody>
                     @foreach ($mascotas as $mascota)
                         <tr>
-                            <td>{{ $mascota->nombre }}</td>
-                            <td>{{ $mascota->tamano }}</td>
-                            <td>{{ $mascota->edad }}</td>
-                            <td>{{ $mascota->sexo }}</td>
-                            <td>{{ $mascota->tipo->nombre }}</td>
-                            <td>{{ $mascota->usuario ? $mascota->usuario->email : 'Sin dueño' }}</td>
-                            <td>{{ $mascota->estado->nombre }}</td>
-                            <td>{{ $mascota->raza->nombre }}</td>
-                            <td>
+                            <td class="align-middle">{{ $mascota->nombre }}</td>
+                            <td class="align-middle">{{ $mascota->tamano }}</td>
+                            <td class="align-middle">{{ $mascota->edad }}</td>
+                            <td class="align-middle">{{ $mascota->sexo }}</td>
+                            <td class="align-middle">{{ $mascota->tipo->nombre }}</td>
+                            <td class="align-middle">{{ $mascota->usuario ? $mascota->usuario->email : 'Sin dueño' }}</td>
+                            <td class="align-middle">{{ $mascota->estado->nombre }}</td>
+                            <td class="align-middle">{{ $mascota->raza->nombre }}</td>
+                            <td class="align-middle" width="150" height="150">
                                 @if ($mascota->foto)
-                                    <img src="{{ asset('images/admin/fotos_mascotas/' . $mascota->foto) }}" alt="Foto de la Mascota" width="100">
+                                    <img src="{{ asset('images/admin/fotos_mascotas/' . $mascota->foto) }}"
+                                        alt="Foto de la Mascota"  class="img-thumbnail">
                                 @else
-                                    <img src="{{ asset('images/admin/imagen.png') }}" alt="Foto default" width="100">
+                                    <img src="{{ asset('images/admin/imagen.png') }}" alt="Foto default">
                                 @endif
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <div class="d-flex">
-                                    <a href="{{route('mascotas.edit', $mascota->id_mascota)}}" class="btn btn-warning me-2">Editar</a>
-                                    <form action="{{route('mascotas.destroy', $mascota->id_mascota)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
+                                    <a href="{{ route('mascotas.edit', $mascota->id_mascota) }}"
+                                        class="btn btn-warning me-2">Editar</a>
+                                    <form action="{{ route('mascotas.destroy', $mascota->id_mascota) }}" method="POST"
+                                        onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -64,8 +80,8 @@
                     @endforeach
                 </tbody>
             </table>
-    
-            {{--{{ $mascotas->links() }}--}}
+
+            {{-- {{ $mascotas->links() }} --}}
         </div>
     </div>
 @endsection

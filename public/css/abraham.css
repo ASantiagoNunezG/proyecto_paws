@@ -1,7 +1,8 @@
 /* En tu archivo de estilos CSS o en línea en tu plantilla Blade */
 ul.pagination li a,
 ul.pagination li span {
-    font-size: 1rem; /* Ajusta el tamaño según tus preferencias */
+    font-size: 1rem;
+    /* Ajusta el tamaño según tus preferencias */
     /* Agrega otros estilos según sea necesario */
 }
 
@@ -11,7 +12,8 @@ nav[role="navigation"] {
 }
 
 nav[role="navigation"] a {
-    padding: 8px 12px; /* Ajusta el espaciado interno */
+    padding: 8px 12px;
+    /* Ajusta el espaciado interno */
 }
 
 /* Opcional: Cambia el color de fondo o los colores de texto en hover */
@@ -23,19 +25,256 @@ nav[role="navigation"] a:hover {
 
 /*Tratando de dividir en cuadrados*/
 .admin-panel-title {
-    color: #ff4081; /* Cambia este color según tus preferencias */
-    font-size: 2.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
-    font-weight: bold; /* Puedes ajustar el grosor de la fuente según tus preferencias */
-    margin-bottom: 20px; /* Ajusta el margen inferior según tus preferencias */
+    color: #744253;
+    /* Cambia este color según tus preferencias */
+    font-size: 2.5rem;
+    /* Ajusta el tamaño de fuente según tus preferencias */
+    font-weight: bold;
+    /* Puedes ajustar el grosor de la fuente según tus preferencias */
+    margin-bottom: 20px;
+    /* Ajusta el margen inferior según tus preferencias */
+    -webkit-text-stroke: 1.5px black;
 }
 
-/*estilo a las cartas de la pantalla principal*/
+.custom-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Agregamos la transición a la propiedad transform y box-shadow del contenedor */
+}
+
 .custom-card img {
     width: 100%;
     height: auto;
 }
 
-.custom-card:hover img {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
+.custom-card:hover {
+    transform: scale(1.1); /* Aplicamos la escala al contenedor */
+     /* Aumentamos la sombra para simular un contorno más pronunciado */
+}
+
+/*Fondo de pantalla body paws administrador*/
+.fondo-body {
+    background-color: #F0F1F1;
+}
+
+.vertical-line {
+    border-left: 2px solid #000;
+    /* Color y grosor de la línea */
+    height: 100px;
+    /* Altura de la línea */
+    margin: 0 auto;
+    /* Centrar la línea */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+footer {
+    background-color: #744253;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* --------------------BOTONES---------------------------* /
+
+/*Estilo para los botones de la ventana principal*/
+
+.boton-dash{
+    /*-webkit-text-stroke: 0.2px black;*/
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color:#F0F1F1;
+    /* Color del texto */
+    background-color: #C5A78F;
+    /* Color de fondo del botón */
+    border: 2px solid #C5A78F;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+.boton-dash:hover {
+    background-color: #9f8570;
+}
+
+/* Estilos para el enlace con la clase 'boton-volver' */
+.boton-volver {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #B3B1B6;
+    /* Color de fondo del botón */
+    border: 2px solid #B3B1B6;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-volver:hover {
+    background-color: #B3B1B6;
+}
+
+/* Estilos para el enlace con la clase 'boton-nuevo' */
+.boton-nuevo {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #C5A78F;
+    /* Color de fondo del botón */
+    border: 2px solid #C5A78F;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-nuevo:hover {
+    background-color: #C5A78F;
+}
+
+/* Estilos para el enlace con la clase 'boton-info'' */
+.boton-info {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #C5A78F;
+    /* Color de fondo del botón */
+    border: 2px solid #C5A78F;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-info:hover {
+    background-color: #C5A78F;
+}
+/* Estilos para el enlace con la clase 'boton-editar' */
+.boton-editar {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #C5A78F;
+    /* Color de fondo del botón */
+    border: 2px solid #C5A78F;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-editar:hover {
+    background-color: #C5A78F;
+}
+/* Estilos para el enlace con la clase 'boton-editar' */
+.boton-eliminar {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #45413E;
+    /* Color de fondo del botón */
+    border: 2px solid #45413E;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-eliminar:hover {
+    background-color: #45413E;
+}
+
+/* Estilos para el enlace con la clase 'boton-guardar' */
+.boton-guardar {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #684431;
+    /* Color de fondo del botón */
+    border: 2px solid #684431;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-guardar:hover {
+    background-color: #684431;
+}
+
+/* Estilos para el enlace con la clase 'boton-cerrar' */
+.boton-cerrar {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Ajusta el padding según tus preferencias */
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    background-color: #87837E;
+    /* Color de fondo del botón */
+    border: 2px solid #87837E;
+    /* Borde del botón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre el enlace */
+.boton-cerrar:hover {
+    background-color: #87837E;
+}
+
+/*-----------------------------------------------------*/
+/*mih2*/
+.mih2 {
+    color: #744253; /* Color del texto */
+    font-size: 30px; /* Tamaño de la fuente */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    margin-bottom: 10px; /* Márgenes en la parte inferior */
+    -webkit-text-stroke: 1px black;
 }

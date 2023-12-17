@@ -1,16 +1,15 @@
 <?php
 
-use App\Models\AMascota;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AMascotaController;
 use App\Http\Controllers\AUsuarioController;
-use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\AProductosController;
 use App\Http\Controllers\AProveedorController;
 use App\Http\Controllers\AAdopcionesController;
+use App\Http\Controllers\ACitaAdopcionController;
 use App\Http\Controllers\AEmpleadosController;
 
 /*
@@ -64,6 +63,10 @@ Route::middleware(['auth', 'role:administrador'])->group(function(){
 
     //Ruta de empleados
     Route::resource('/administrador/empleados', AEmpleadosController::class);
+
+    //Ruta para citas adopciones
+    Route::resource('/administrador/citas', ACitaAdopcionController::class);
+
 });
 
 Route::middleware(['auth', 'role:usuario'])->group(function(){

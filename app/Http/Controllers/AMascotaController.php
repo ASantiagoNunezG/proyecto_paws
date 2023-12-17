@@ -111,21 +111,19 @@ class AMascotaController extends Controller
         foreach ($categorias as $categoria) {
             switch ($categoria) {
                 case 'Macho':
-                    $query->where('sexo', '=', 'Macho'); // Reemplaza 1 con el valor correcto
+                    $query->where('sexo', '=', 'Macho'); 
                     break;
                 case 'Hembra':
-                    $query->where('sexo', '=', 'Hembra'); // Reemplaza 1 con el valor correcto
+                    $query->where('sexo', '=', 'Hembra'); 
                     break;
                 case 'Disponible':
-                    $query->where('id_estadomascota', '=', 1); // Reemplaza 1 con el valor correcto
+                    $query->where('id_estadomascota', '=', 1); 
                     break;
                 // Agrega más casos según tus necesidades
             }
         }
     }
-
     // Agrega más condiciones según tus necesidades
-
     $mascotas = $query->get();
 
     return view('admin.mascotas.index', compact('mascotas'));
