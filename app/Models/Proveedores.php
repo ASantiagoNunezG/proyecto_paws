@@ -15,7 +15,7 @@ class Proveedor extends Model
     
     protected $fillable =['nombre','ruc','telefono'];
 
-    /*public function productos(){
-        return $this->hasMany('App\Models\productos','id_proveedor','id_proveedor');
-    }*/
+    public function productos(){
+        return $this->hasMany('App\Models\Productos','id_proveedor','id_proveedor');
+    }
 }

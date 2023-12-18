@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tamano',30);
             $table->string('edad',10);
             $table->enum('sexo',['Macho', 'Hembra']);
+            $table->string('descripcion');
             $table->unsignedBigInteger('id_tipomascota');
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->unsignedBigInteger('id_estadomascota');

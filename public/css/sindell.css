@@ -1,0 +1,114 @@
+/*HEADER*/
+
+.carousel-inner img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover; /* Para asegurarse de que la imagen cubra completamente el área del contenedor */
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 19, 19, 0.5); /* Color opaco, se puede ajustar la opacidad cambiando el valor de 0.5 */
+    z-index: 1;
+}
+
+.carousel-caption {
+    z-index: 2;
+}
+
+/* ESTILOS EN LOS BOTONES*/
+#btn-2{
+    background-color: #F7D1CD;
+    border:none
+}
+
+#btn-2:hover {
+    background-color: #CBE896; /* Verde más oscuro al pasar el ratón */
+  }
+
+/*ESTILOS PARA LOS SUBTITULOS DEL INICIO*/
+
+.subtitulo{
+    color: #333; /* Cambiar color del texto */
+    font-size: 30px; /* Cambiar tamaño de la fuente */
+    font-weight: bold; /* Hacer el texto en negrita */
+}
+
+/* Estilo para la línea que separa el título del contenido */
+.subtitulo::after {
+    content: ""; /* Agregar contenido pseudo-elemento */
+    display: block; /* Mostrar como bloque */
+    width: 60px; /* Ancho de la línea */
+    height: 4px; /* Grosor de la línea */
+    background-color: #CBE896; /* Color de la línea */
+    margin: 10px auto; /* Margen para centrar la línea */
+}
+
+/* ESTILOS PARA LA VISUALIZACIÓN DE LOS ASISTENTES*/
+
+.asistente {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.asistente:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.asistente img {
+    border-radius: 50%;
+}
+
+/* Estilos para la primera tarjeta */
+#fundador-1 {
+    background-color: #E8C2CA;
+    color: #ffffff; /* Texto negro */
+}
+
+/* Estilos para la segunda tarjeta */
+#fundador-2 {
+    background-color: #D1B3C4;
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para la tercera tarjeta */
+#fundador-3 {
+    background-color: #CBE896;
+    color: #ffffff; /* Texto blanco */
+}
+
+/*ESTILOS DE LA IMAGEN DE LA MASCOTA EN LOS CARDS*/
+.mascota-img {
+    max-height: 200px; /* Establece la altura máxima deseada */
+    width: auto; /* Ajusta automáticamente el ancho según la altura máxima */
+    object-fit: cover; /* Cubre el área asignada sin deformar la imagen */
+}
+
+/* ESTILOS DE LA VISTA NOSOTROS*/
+
+.sobre-nosotros-img {
+    width: 100%;
+    height: auto;
+}
+
+.sobre-nosotros-text {
+    padding: 20px;
+}
+
+.sobre-nosotros-text h2 {
+    color: #CBE896; /* Color azul para los títulos */
+}
+
+.sobre-nosotros-text p {
+    font-size: 16px;
+    line-height: 1.6;
+}

@@ -1,0 +1,55 @@
+ 
+ /*AGREGAMOS ESTILOS DE FUENTE Y TAMAÑO AL TITULO PAWS*/
+ #navbar-title {
+    font-family:'Courier New', Courier, monospace; /* Reemplaza 'TU-FUENTE' con el nombre real de tu fuente */
+    font-size: 3rem !important;
+}
+
+/* ESTILOS AL PASAR EL CURSOR SOBRE CADA UNO DE LOS NAV-ITEM */
+.nav-link {
+    transition: background-color 0.3s, color 0.3s; /* Agrega transiciones suaves para un efecto más agradable */
+    margin-right: 15px; /* Añade un margen derecho entre elementos */
+}
+.nav-link:hover {
+    background-color: #ffffff; /* Cambia el color de fondo al pasar el ratón */
+    color: #000000 !important; /* Cambia el color del texto al pasar el ratón */
+}
+
+ /* COLOR DE FONDO EN CABECERA Y FOOTER*/
+ #cabecera {
+    background-color: #936a78;
+}
+
+body {
+    background-color: #f2f2f2; /* Color de fondo gris claro */
+    padding-top: 50px; /* Ajusta el espacio en la parte superior de la página */
+}
+
+#formularioDiv {
+    background-color: #ffffff; /* Color de fondo blanco para el formulario */
+    padding: 20px; /* Ajusta el espacio interno del formulario */
+    border-radius: 10px; /* Añade bordes redondeados al formulario */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Añade sombra al formulario */
+}
+#footer {
+    background-color: #936a78;
+}
+
+/*EFECTO DE LEVANTAMIENTO EN LOS CARDS*/
+
+#efecto-levantamiento {
+    transition: transform 0.3s ease-in-out;
+}
+
+#efecto-levantamiento:hover {
+    transform: translateY(-5px);
+}
+
+.card {
+    height: 100%; /* Establece una altura fija para todos los elementos card */
+}
+
+.card img {
+    height: 200px; /* Ajusta la altura de la imagen según tus necesidades */
+    object-fit: cover; /* Ajusta el comportamiento de la imagen para cubrir el espacio disponible */
+}

@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\UserAdopcionController;
+use App\Http\Controllers\UserProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +40,9 @@ Route::middleware(['auth', 'role:administrador'])->group(function(){
 
 Route::middleware(['auth', 'role:usuario'])->group(function(){
     Route::get('/usuario', [UserController::class, 'UserDashboard'])->name('usuario');
+    Route::get('/usuario/nosotros', [UserController::class, 'usernosotros'])->name('nosotros');
+    Route::resource('/usuario/adopcion', UserAdopcionController::class);
+    Route::post('/reserva', [UserAdopcionController::class, 'reserva'])->name('adopcion.reserva');
+    Route::resource('/producto', UserProductoController::class);
 
 });
