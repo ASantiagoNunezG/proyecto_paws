@@ -2,17 +2,17 @@
 @section('title', 'Nueva Mascota')
 @section('content')
     <div class="container">
-        <h2>REGISTRAR MASCOTA</h2>
+        <h2 class="mih2">REGISTRAR MASCOTA</h2>
         <div class="row">
             <div style="margin-bottom: 30px">
-                <a href="{{ route('mascotas.index') }}" class="btn btn-secondary me-2"><i
+                <a href="{{ route('mascotas.index') }}" class="btn boton-volver me-2"><i
                         class="bi bi-arrow-left"></i>Volver</a>
             </div>
         </div>
         <div class="row">
             <form action="{{ route('mascotas.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="row">
+                <div class="row" style="background-color: #F0F1F1;padding:3%">
                     <div class="col-md-6">
                         <div class="mb-3">
     
@@ -60,7 +60,7 @@
                             <label for="foto" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto">
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn boton-guardar">Guardar</button>
                     </div>
 
                     <div class="col-md-6">

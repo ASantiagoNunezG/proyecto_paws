@@ -5,9 +5,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>NUEVO EMPLEADO</h2>
+            <h2 class="mih2">NUEVO EMPLEADO</h2>
             <div style="margin-bottom: 20px">
-                <a href="{{ route('empleados.index') }}" class="btn btn-secondary">
+                <a href="{{ route('empleados.index') }}" class="btn boton-volver">
                     <i class="bi bi-arrow-left"></i> Volver
                 </a>
             </div>
@@ -43,7 +43,7 @@
                                 <label for="foto" class="form-label">Foto</label>
                                 <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
                             </div>
-                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="submit" class="btn boton-guardar">Guardar</button>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">

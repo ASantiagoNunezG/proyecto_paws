@@ -95,7 +95,7 @@ class AMascotaController extends Controller
     public function destroy($id)
     {
         AMascota::find($id)->delete();
-        return redirect()->route('mascotas.index')->with('success', 'Mascota eliminado');
+        return redirect()->route('mascotas.index')->with('success', 'Registro de la mascota removido');
     }
 
     public function filtrar(Request $request)

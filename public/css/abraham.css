@@ -39,7 +39,8 @@ nav[role="navigation"] a:hover {
 .custom-card {
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out; /* Agregamos la transición a la propiedad transform y box-shadow del contenedor */
+    transition: transform 0.3s ease-in-out;
+    /* Agregamos la transición a la propiedad transform y box-shadow del contenedor */
 }
 
 .custom-card img {
@@ -48,8 +49,9 @@ nav[role="navigation"] a:hover {
 }
 
 .custom-card:hover {
-    transform: scale(1.1); /* Aplicamos la escala al contenedor */
-     /* Aumentamos la sombra para simular un contorno más pronunciado */
+    transform: scale(1.1);
+    /* Aplicamos la escala al contenedor */
+    /* Aumentamos la sombra para simular un contorno más pronunciado */
 }
 
 /*Fondo de pantalla body paws administrador*/
@@ -89,13 +91,13 @@ footer {
 
 /*Estilo para los botones de la ventana principal*/
 
-.boton-dash{
+.boton-dash {
     /*-webkit-text-stroke: 0.2px black;*/
     display: inline-block;
     padding: 10px 20px;
     /* Ajusta el padding según tus preferencias */
     text-decoration: none;
-    color:#F0F1F1;
+    color: #F0F1F1;
     /* Color del texto */
     background-color: #C5A78F;
     /* Color de fondo del botón */
@@ -106,6 +108,7 @@ footer {
     transition: background-color 0.3s ease-in-out;
     /* Transición suave del color de fondo */
 }
+
 .boton-dash:hover {
     background-color: #9f8570;
 }
@@ -178,6 +181,7 @@ footer {
 .boton-info:hover {
     background-color: #C5A78F;
 }
+
 /* Estilos para el enlace con la clase 'boton-editar' */
 .boton-editar {
     display: inline-block;
@@ -200,6 +204,7 @@ footer {
 .boton-editar:hover {
     background-color: #C5A78F;
 }
+
 /* Estilos para el enlace con la clase 'boton-editar' */
 .boton-eliminar {
     display: inline-block;
@@ -272,9 +277,43 @@ footer {
 /*-----------------------------------------------------*/
 /*mih2*/
 .mih2 {
-    color: #744253; /* Color del texto */
-    font-size: 30px; /* Tamaño de la fuente */
-    font-weight: bold; /* Peso de la fuente (negrita) */
-    margin-bottom: 10px; /* Márgenes en la parte inferior */
+    color: #744253;
+    /* Color del texto */
+    font-size: 30px;
+    /* Tamaño de la fuente */
+    font-weight: bold;
+    /* Peso de la fuente (negrita) */
+    margin-bottom: 10px;
+    /* Márgenes en la parte inferior */
     -webkit-text-stroke: 1px black;
+}
+
+.titulo-modal {
+    color: #744253;
+    /* Color del texto */
+    font-size: 25px;
+    /* Tamaño de la fuente */
+    font-weight: bold;
+    /* Peso de la fuente (negrita) */
+    margin-bottom: 5px;
+    /* Márgenes en la parte inferior */
+    -webkit-text-stroke: 1px black;
+}
+
+/*Selects--------------estilos*/
+.mi-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #f4f4f4;
+    color: #333;
+    cursor: pointer;
+}
+
+.mi-select option:hover {
+    background-color: #e0e0e0; /* Cambia el color al pasar el ratón */
+    color: #333; /* Cambia el color del texto al pasar el ratón */
 }

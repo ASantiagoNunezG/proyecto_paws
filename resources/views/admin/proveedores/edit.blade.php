@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Editar Proveedor</h5>
+                <h5 class="titulo-modal" id="editModalLabel">Editar Proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -25,9 +25,10 @@
                         <input type="text" class="form-control" id="telefono" name="telefono" required value="{{ $proveedor->telefono }}">
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                    <div>
+                        <button type="submit" class="btn boton-guardar">Guardar</button>
+                        <button type="button" class="btn boton-cerrar" data-bs-dismiss="modal">Cerrar</button>
+                        
                     </div>
                 </form>
             </div>

@@ -2,15 +2,15 @@
 @section('title', 'Editar Mascota')
 @section('content')
     <div class="container">
-        <h2>EDITAR MASCOTA</h2>
+        <h2 class="mih2">EDITAR MASCOTA</h2>
         <div class="row">
             <div style="margin-bottom: 30px">
-                <a href="{{ route('mascotas.index') }}" class="btn btn-secondary me-2"><i class="bi bi-arrow-left"></i>Volver</a>
+                <a href="{{ route('mascotas.index') }}" class="btn boton-volver me-2"><i class="bi bi-arrow-left"></i>Volver</a>
             </div>
             <form action="{{ route('mascotas.update', $mascota->id_mascota) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="row">
+                <div class="row" style="background-color: #F0F1F1;padding:3%">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="id_estadomascota" class="form-label">Estado de la Mascota</label>
@@ -50,7 +50,7 @@
                                 <img src="{{ asset('images/admin/fotos_mascotas/' . $mascota->foto) }}" alt="Foto actual de la mascota" style="width: 50%; height: auto;">
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn boton-guardar">Guardar</button>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">

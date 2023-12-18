@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Panel del Administrador')
 @section('content')
-    <div class="row" style="background-image: url('{{asset('images/admin/paws2.jpg')}}')">
-        <div style="text-align: center; padding:10px; background-image: url('{{asset('images/admin/paws2.jpg')}}')" >
+    <div class="row" style="">
+        <div style="text-align: center; padding:10px;" >
             <div style="background-color: white">
                 <h1 class="admin-panel-title">PANEL DE ADMINISTRACIÓN</h1>
             </div>
@@ -55,7 +55,6 @@
                         <h5 class="card-title">Usuarios</h5><hr><br>
                         <a href="{{route('usuarios.index')}}" class="btn boton-dash">Administrar usuarios</a>
                         <br><br>
-                        <a href="#" class="btn boton-dash">Bandeja de reclamos</a>
                     </div>
                 </div>
             </div>

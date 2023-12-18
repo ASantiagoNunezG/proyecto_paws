@@ -5,9 +5,9 @@
         <div class="row">
             {{-- seccion para el formulario --}}
             <div class="col-md-12">
-                <h2>NUEVO PRODUCTO</h2>
+                <h2 class="mih2">NUEVO PRODUCTO</h2>
                 <div>
-                    <a href="{{ route('productos.index') }}" class="btn btn-secondary">
+                    <a href="{{ route('productos.index') }}" class="btn boton-volver">
                         <i class="bi bi-arrow-left"></i> Volver
                     </a>
                 </div>
@@ -25,19 +25,19 @@
 
                                 <div class="mb-3">
                                     <label for="precio" class="form-label">Precio:</label>
-                                    <input type="number" name="precio" id="precio" class="form-control" step="0.01"
+                                    <input type="number" name="precio" id="precio" class="form-control" min="0.01" step="0.01"
                                         placeholder="0.00" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="cantidad" class="form-label">Cantidad:</label>
-                                    <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                                    <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="marca" class="form-label">Marca:</label>
                                     <input type="text" name="marca" id="marca" class="form-control" required>
                                 </div>
-                                <button type="submit" class="btn btn-success">Guardar Producto</button>
+                                <button type="submit" class="btn boton-guardar">Guardar Producto</button>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">

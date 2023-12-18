@@ -3,38 +3,35 @@
 @section('content')
 
     <div class="container mt-4">
-        <h1>Usuarios</h1>
+        <h1 class="mih2">Usuarios</h1>
         <div>
-            <a href="{{route('administrador')}}" class="btn btn-primary mb-3">Volver</a>
-            <a href="{{route('usuarios.create')}}" class="btn btn-primary mb-3">Registrar nuevo usuario</a>
+            <a href="{{route('administrador')}}" class="btn boton-volver mb-3"><i
+                class="bi bi-arrow-left"></i>Volver</a>
         </div>
-        <div>
+        <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead>
-                    <tr>
-                        <th>Más información</th>
+                    <tr style="background-color: #CDC4BC">
                         <th>Nombres</th>
                         <th>Correo</th>
-                        <th>Fecha de creación</th>
-                        <th class="collapse d-sm-table-cell">Fecha de modificación</th>
+                        <th>Fecha de registro</th>
+                        
                         <th class="collapse d-sm-table-cell">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($usuarios as $usuario)
                         <tr>
-                            <td><a href="{{ route('usuarios.show', $usuario->id_usuario) }}" class="btn btn-info">Ver</a></td>
-                            <td>{{ $usuario->name }}</td>
-                            <td>{{ $usuario->email }}</td>
-                            <td class="collapse d-sm-table-cell">{{ $usuario->created_at ? $usuario->created_at->format('d/m/Y H:i:s') : 'Fecha no disponible' }}</td>
-                            <td class="collapse d-sm-table-cell">{{ $usuario->updated_at ? $usuario->updated_at->format('d/m/Y H:i:s') : 'Fecha no disponible' }}</td>
-                            <td>
+                            <td class="align-middle">{{ $usuario->name }}</td>
+                            <td class="align-middle">{{ $usuario->email }}</td>
+                            <td class="align-middle">{{ $usuario->created_at ? $usuario->created_at->format('d/m/Y ') : 'Fecha no disponible' }}</td>
+                            <td class="align-middle">
                                 <div class="d-flex">
-                                    <a href="{{ route('usuarios.edit', $usuario->id_usuario) }}" class="btn btn-warning me-2">Editar</a>
-                                    <form action="{{ route('usuarios.destroy', $usuario->id_usuario) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?')">
+                                    <a href="{{ route('usuarios.show', $usuario->id_usuario) }}" class="btn boton-info me-2"><i class="bi bi-info-circle"></i></a>
+                                    <form action="{{ route('usuarios.destroy', $usuario->id_usuario) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="btn boton-eliminar"><i class="bi bi-trash"></i></button>
                                     </form>
                                 </div>
                             </td>

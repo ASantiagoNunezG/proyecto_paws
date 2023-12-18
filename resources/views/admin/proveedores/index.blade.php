@@ -2,29 +2,26 @@
 
 @section('title', 'Proveedores')
 @section('content')
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
     <div class="container" style="background-color: whitesmoke">
         <div class="row" style="border: 1px solid black; padding:30px;">
-            <h2>PROVEEDORES</h2>
+            <h2 class="mih2">PROVEEDORES</h2>
             {{-- encabezado de la primera seccion --}}
             <div class="col-md-7" style="border: 1px solid black;background-color:white;">
                 <div class="row" style="margin-top:20px">
                     <div class="col">
-                        <a href="{{ route('administrador') }}" class="btn btn-secondary me-2"><i class="bi bi-arrow-left"></i>Volver</a>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formularioModal">
+                        <a href="{{ route('administrador') }}" class="btn boton-volver me-2"><i
+                                class="bi bi-arrow-left"></i>Volver</a>
+                        <button type="button" class="btn boton-nuevo" data-bs-toggle="modal"
+                            data-bs-target="#formularioModal">
                             Nuevo Proveedor
                         </button>
                     </div>
                     <div class="col">
                         <form action="{{ route('proveedores.buscar') }}" method="GET">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Buscar por nombre" name="nombre" value="{{ request('nombre') }}">
-                                <button class="btn btn-primary" type="submit">Buscar</button>
+                                <input type="text" class="form-control" placeholder="Buscar por nombre" name="nombre"
+                                    value="{{ request('nombre') }}">
+                                <button class="btn boton-nuevo" type="submit"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
                     </div>
@@ -34,9 +31,9 @@
                     <div class="col-md-12">
                         @if ($proveedores->count() > 0)
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-bordered table-hover">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #CDC4BC">
                                             <th>Nombre</th>
                                             <th>RUC</th>
                                             <th>Celular</th>
@@ -46,19 +43,25 @@
                                     <tbody>
                                         @foreach ($proveedores as $proveedor)
                                             <tr>
-                                                <td>{{ $proveedor->nombre }}</td>
-                                                <td>{{ $proveedor->ruc }}</td>
-                                                <td>{{ $proveedor->telefono }}</td>
-                                                <td>
+                                                <td class="align-middle">{{ $proveedor->nombre }}</td>
+                                                <td class="align-middle">{{ $proveedor->ruc }}</td>
+                                                <td class="align-middle">{{ $proveedor->telefono }}</td>
+                                                <td class="align-middle">
                                                     <div class="d-flex">
-                                                        <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#editModal{{ $proveedor->id_proveedor }}">
-                                                            Editar
+                                                        <button type="button" class="btn boton-editar me-2"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $proveedor->id_proveedor }}">
+                                                            <i class="bi bi-pencil-square"></i>
                                                         </button>
                                                         @include('admin.proveedores.edit')
-                                                        <form action="{{ route('proveedores.destroy', $proveedor->id_proveedor) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?')">
+                                                        <form
+                                                            action="{{ route('proveedores.destroy', $proveedor->id_proveedor) }}"
+                                                            method="POST"
+                                                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?')">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <button type="submit" class="btn boton-eliminar"><i
+                                                                    class="bi bi-trash"></i></button>
                                                         </form>
                                                     </div>
                                                 </td>
@@ -74,17 +77,18 @@
                 </div>
             </div>
             <div class="col-md-5" style="text-align: center">
-                <img src="{{ asset('images/admin/proveedor2.jpg') }}" alt="Imagen de proveedor" style="border: 2px solid black">
+                <img src="{{ asset('images/admin/proveedor2.jpg') }}" alt="Imagen de proveedor"
+                    style="border: 2px solid black">
             </div>
         </div>
     </div>
-    {{--Modal de creacion--}}
+    {{-- Modal de creacion --}}
     <div class="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="formularioModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="formularioModalLabel">Registrando a un nuevo proveedor</h5>
+                    <h5 class="titulo-modal" id="formularioModalLabel">Registrando a un nuevo proveedor</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -106,12 +110,16 @@
                             <label for="telefono" class="form-label">Celular</label>
                             <input type="text" class="form-control" id="telefono" name="telefono" required>
                         </div>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <div>
+                            <button type="submit" class="btn boton-guardar me-2">Guardar</button>
+                            <button type="button" class="btn boton-cerrar" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+
+
 @endsection

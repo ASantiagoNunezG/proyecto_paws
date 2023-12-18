@@ -1,27 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Citas')
 @section('content')
-    @if (session('success'))
-        <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(function() {
-                        var alert = document.getElementById('success-alert');
-                        alert.classList.add('fade');
-                        alert.classList.remove('show');
-
-                        // Elimina la alerta después de la animación de desvanecimiento
-                        setTimeout(function() {
-                            alert.remove();
-                        }, 150); // Ajusta este valor según sea necesario
-                    }, 3000); // 5000 milisegundos = 5 segundos
-                });
-            </script>
-        </div>
-    @endif
     <div class="container">
         <h2 class="mih2">CITAS DE ADOPCIÓN</h2>
         <div class="row">
@@ -46,24 +25,31 @@
                         <tbody>
                             @foreach ($citas as $cita)
                                 <tr>
-                                    <td>{{ $cita->fecha }}</td>
-                                    <td>{{ $cita->hora }}</td>
-                                    <td>{{ $cita->usuario->name }}</td>
-                                    <td>{{ $cita->mascota->nombre }}</td>
-                                    <td>{{ $cita->reserva->nombre }}</td>
+                                    <td class="align-middle">{{ $cita->fecha }}</td>
+                                    <td class="align-middle">{{ $cita->hora }}</td>
+                                    <td class="align-middle">{{ $cita->usuario->email }}</td>
+                                    <td class="align-middle">{{ $cita->mascota->nombre }}</td>
+                                    <td class="align-middle">{{ $cita->reserva->nombre }}</td>
                                     <td class="align-middle">
                                         <div class="d-flex">
                                             <button type="button" class="btn boton-editar me-2" data-bs-toggle="modal"
                                                 data-bs-target="#formularioModal{{ $cita->id_citamascota }}">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
-                                            <form action="{{ route('citas.destroy', $cita->id_citamascota) }}"
-                                                method="POST"
-                                                onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?')">
+                                            <form action="{{ route('citas.destroy', $cita->id_citamascota) }}" method="POST"
+                                                onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn boton-eliminar"><i class="bi bi-trash"></i></button>
                                             </form>
+                                            {{--<form id="deleteForm" action="{{ route('citas.destroy', $cita->id_citamascota) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete(event)">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn boton-eliminar">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>--}}
+                                            
                                             @include('admin.citas.edit')
                                             
                                         </div>
@@ -78,4 +64,26 @@
 
         </div>
     </div>
+    <script>
+        function confirmDelete(event) {
+            // Prevenir el envío automático del formulario
+            event.preventDefault();
+    
+            // Utiliza SweetAlert para mostrar un modal de confirmación
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: '¡No podrás revertir esto!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminarlo'
+            }).then((result) => {
+                // Si el usuario hace clic en el botón de confirmación, envía el formulario manualmente
+                if (result.isConfirmed) {
+                    document.getElementById('deleteForm').submit();
+                }
+            });
+        }
+    </script>
 @endsection()
